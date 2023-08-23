@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+// Controller
+use App\Http\Controllers\ListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/list', function (Request $request) {
-    return "hello list";
-});
+Route::get('/list', [ListController::class, 'index']);
