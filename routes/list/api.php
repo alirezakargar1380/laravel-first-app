@@ -18,3 +18,4 @@ use App\Http\Controllers\ListController;
 */
 
 Route::get('/list', [ListController::class, 'index']);
+Route::post('/list', [ListController::class, 'create']);

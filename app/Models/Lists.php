@@ -9,5 +9,5 @@ class Lists extends Model
 {
     use HasFactory;
     protected $table = 'lists';
-    protected $fillable = ['title', 'author'];
+    protected $fillable = ['name', 'author', 'test'];
 }
