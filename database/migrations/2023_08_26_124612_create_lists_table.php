@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('lists', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('test');
             $table->string('author');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

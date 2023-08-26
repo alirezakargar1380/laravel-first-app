@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lists;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 class ListController extends Controller
@@ -19,7 +20,8 @@ class ListController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'author' => 'required',
-            'test' => 'required'
+            'test' => 'required',
+            'user_id' => 'required|numeric'
         ]);
 
         if ($validator->fails()) {
@@ -33,7 +35,8 @@ class ListController extends Controller
         $saved = Lists::create([
             'name' => $request->name,
             'author' => $request->author,
-            'test' => $request->test
+            'test' => $request->test,
+            'user_id' => $request->integer('user_id')
         ]);
 
         return response()->json([
