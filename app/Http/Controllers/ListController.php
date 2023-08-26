@@ -41,4 +41,19 @@ class ListController extends Controller
             'data' => $saved
         ]);
     }
+
+    public function update(Request $request, $id)
+    {
+        $student = Lists::find($id);
+        $student->name = $request->name;
+        $student->author = $request->author;
+        $student->test = $request->test;
+        $student->update();
+
+        return response()->json([
+            'm' => 'done',
+            // 'data' => $request->all()
+            'data' => $student
+        ]);
+    }
 }
