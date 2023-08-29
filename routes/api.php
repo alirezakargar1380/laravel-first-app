@@ -23,4 +23,5 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
     Route::apiResource('auth', 'AuthController');
+    // Route::apiResource('list', 'ListController');
 });

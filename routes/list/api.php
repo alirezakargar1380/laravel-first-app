@@ -17,6 +17,6 @@ use App\Http\Controllers\ListController;
 |
 */
 
-Route::get('/list', [ListController::class, 'index']);
+Route::middleware('auth:sanctum')->get('/list', [ListController::class, 'index']);
 Route::post('/list', [ListController::class, 'create']);
 Route::post('/list/{id}', [ListController::class, 'update']);
